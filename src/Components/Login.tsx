@@ -4,13 +4,7 @@ import React, { useState } from 'react'
 const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [isLogin, setIsLogin] = useState(false)
-
-  const handleSubmit = () => {
-    if (username == 'admin' && password == '123') {
-      setIsLogin(true);
-    }
-  } 
+  const [isLogin, setIsLogin] = useState(false) 
 
   return (
     <View style={styles.conatiner}>
@@ -24,7 +18,7 @@ const Login = () => {
           <TextInput
           onChangeText={text => setPassword(text)}></TextInput>
           <TouchableOpacity
-          onPress={()=> handleSubmit}>
+          onPress={()=> setIsLogin(true)}>
             <Text style={styles.login}>Login</Text>
           </TouchableOpacity>
         </View>
@@ -34,10 +28,10 @@ const Login = () => {
             <Text style={styles.successCard}>Login Successful</Text>
           </View>
         )}
-        {/* {!isLogin && (
+        {!isLogin && (
         <View>
-          <Text style={styles.failCard}>Username and password are invalid</Text>
-        </View>) } */}
+          <Text style={styles.failCard}>Enter valid username and password</Text>
+        </View>) }
     </View>
   )
 }
